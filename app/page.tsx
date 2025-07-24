@@ -1,94 +1,73 @@
-import Image from "next/image";
+"use client";
+
 import styles from "./page.module.css";
+import { useState } from "react";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
+  const [binaryBase, setBinaryBase, ] = useState([8, 4, 2, 1]);
+  const [binary, setBinary] = useState([0, 0, 0, 0]);
+  const [decimal, setDecimal] = useState(0);
+  const [currentlyAddedBinary, setcurrentlyAddedBinary] = useState([]);
+
+
+  function addBinaryValue(){
+      // get the first binary value
+      const newBinaryBase = binaryBase[0] * 2;
+
+      setBinaryBase(() => [newBinaryBase, ...binaryBase]);
+      setBinary(()=>[0, ...binary]);
+  }
+
+  function addValueToDecimal(binaryData, index){
+    // get the index of the bin data.
+    // change the bin data to 1 if the value is 0, and vice versa
+
+    // create a array scanner
+    // get all the index position of "1"
+
+    // find the matching postion to the binary value
+    //  add it to the decimal
+
+    console.log(`value: ${binaryData}`,  `index: ${index}`)
+  }
+
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+        <h1>Decimal: {decimal}</h1>
+        <div className={styles.simulatorContainer}>
+          <table className={styles.simulatorTable}>
+            <thead>
+              <tr>
+                {binaryBase.map((binaryBaseData) => {
+                  return(
+                    <th key={uuidv4()}>{binaryBaseData}</th>
+                  )
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+               {binaryBase.map((binaryBaseData, index)=>{
+                  return(
+                    <td key={uuidv4()} 
+                    
+                    onClick={()=>{
+                     addValueToDecimal(binaryBaseData, index)
+                    }}>{0}</td>
+                  )
+                })}
+              </tr>
+            </tbody>
+          </table>
+          <button  onClick={addBinaryValue} className={styles.btnAddBinaryValue}>add</button>
         </div>
+        
       </main>
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <a>darwin</a>
       </footer>
     </div>
   );
