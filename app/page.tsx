@@ -8,8 +8,6 @@ export default function Home() {
   const [binaryBase, setBinaryBase, ] = useState([8, 4, 2, 1]);
   const [binary, setBinary] = useState([0, 0, 0, 0]);
   const [decimal, setDecimal] = useState(0);
-  const [currentlyAddedBinary, setcurrentlyAddedBinary] = useState([]);
-
 
   function addBinaryValue(){
       // get the first binary value
@@ -19,19 +17,33 @@ export default function Home() {
       setBinary(()=>[0, ...binary]);
   }
 
-  function addValueToDecimal(binaryData, index){
-    // get the index of the bin data.
-    // change the bin data to 1 if the value is 0, and vice versa
+  function addValueToDecimal(binaryData: number, binaryIndex: number){
+    let selectedBinaryData = binary[binaryIndex];
 
-    // create a array scanner
-    // get all the index position of "1"
+    // change the selected binary data
+    // change the binary data to 1 if the value is 0, and vice versa
+    if(selectedBinaryData === 1){
+      selectedBinaryData = 0;
+      // get the binaryBase value based on the Binary Index
+      const valueToSubtract = binaryBase[binaryIndex];
 
-    // find the matching postion to the binary value
-    //  add it to the decimal
+      setDecimal(decimal - valueToSubtract);
+    }else{
+      selectedBinaryData = 1;
+      // get the binaryBase value based on the Binary Index
+      const valueToAdd = binaryBase[binaryIndex];
 
-    console.log(`value: ${binaryData}`,  `index: ${index}`)
+      setDecimal(decimal + valueToAdd);
+    }
+    
+    // modify the new array
+    // remove the selected
+    // insert the new value to the array
+    const newBinaryData = binary;
+    newBinaryData.splice(binaryIndex, 1, selectedBinaryData)
+    
+    setBinary([...newBinaryData])
   }
-
 
   return (
     <div className={styles.page}>
@@ -50,13 +62,13 @@ export default function Home() {
             </thead>
             <tbody>
               <tr>
-               {binaryBase.map((binaryBaseData, index)=>{
+               {binary.map((binaryData, binaryIndex)=>{
                   return(
                     <td key={uuidv4()} 
                     
                     onClick={()=>{
-                     addValueToDecimal(binaryBaseData, index)
-                    }}>{0}</td>
+                     addValueToDecimal(binaryData, binaryIndex)
+                    }}>{binaryData}</td>
                   )
                 })}
               </tr>
