@@ -97,7 +97,7 @@ a.secondary {
   gap: 24px;
 }
 
-.footer a {
+.footer {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -170,6 +170,14 @@ a.secondary {
   height: 200px;
   padding: 10px;
   cursor: pointer;
+}
+
+.btnBinaryCell{
+  cursor: pointer;
+}
+
+.btnBinaryCell:hover{
+  background-color: #383838;
 }
 
 .simulatorContainer{

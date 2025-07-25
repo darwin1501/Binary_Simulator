@@ -3,6 +3,7 @@
 import styles from "./page.module.css";
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
+import Image from "next/image";
 
 export default function Home() {
   const [binaryBase, setBinaryBase, ] = useState([8, 4, 2, 1]);
@@ -47,8 +48,9 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <h1 style={{textAlign: "left"}}>Binary Simulator</h1>
       <main className={styles.main}>
-        <h1>Decimal: {decimal}</h1>
+        <h3>Decimal: &nbsp;<span style={{fontSize: "40px"}}>{decimal}</span></h3>
         <div className={styles.simulatorContainer}>
           <table className={styles.simulatorTable}>
             <thead>
@@ -65,7 +67,7 @@ export default function Home() {
                {binary.map((binaryData, binaryIndex)=>{
                   return(
                     <td key={uuidv4()} 
-                    
+                    className={styles.btnBinaryCell}
                     onClick={()=>{
                      addValueToDecimal(binaryData, binaryIndex)
                     }}>{binaryData}</td>
@@ -74,12 +76,26 @@ export default function Home() {
               </tr>
             </tbody>
           </table>
-          <button  onClick={addBinaryValue} className={styles.btnAddBinaryValue}>add</button>
+          <button  onClick={addBinaryValue} className={styles.btnAddBinaryValue}>
+            <Image 
+            alt="add"
+              src={"/img/svg/add.svg"}
+              width={20}
+              height={20}
+            />
+          </button>
         </div>
         
       </main>
       <footer className={styles.footer}>
-        <a>darwin</a>
+        <span style={{width: "100%"}}>Created by: &nbsp;
+          <a href="https://https://darwin1501.github.io/" target="_blank"
+          style={{
+            textDecoration: "underline"
+          }}>
+            Darwin
+          </a>
+          </span>
       </footer>
     </div>
   );
