@@ -82,13 +82,12 @@ export default function Home() {
           display: "flex",
           flexDirection: "column"
         }}>
-          <h3>Decimal: &nbsp;<span style={{fontSize: "40px"}}>{decimal}</span></h3>
-          <h3>Binary: &nbsp;<span style={{fontSize: "40px"}}>{binaryDisplay}</span></h3>
+          <h3>Decimal: &nbsp;&nbsp;<span style={{fontSize: "40px"}}>{decimal}</span></h3>
+          <h3>Binary: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{fontSize: "40px"}}>{binaryDisplay}</span></h3>
         </div>
         <button style={{
           width: "15%",
-          padding: "10px",
-          cursor: "pointer"
+          padding: "10px"
         }}
         onClick={resetData}        
         >
