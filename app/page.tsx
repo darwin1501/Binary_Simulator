@@ -9,6 +9,7 @@ export default function Home() {
   const [binaryBase, setBinaryBase, ] = useState([8, 4, 2, 1]);
   const [binary, setBinary] = useState([0, 0, 0, 0]);
   const [decimal, setDecimal] = useState(0);
+  const [binaryDisplay, setBinaryDisplay] = useState<number[]>([]);
 
   function addBinaryValue(){
       // get the first binary value
@@ -44,13 +45,55 @@ export default function Home() {
     newBinaryData.splice(binaryIndex, 1, selectedBinaryData)
     
     setBinary([...newBinaryData])
+
+    buildBinaryDigit()
+  }
+
+  function buildBinaryDigit(){
+    let newBinaryDigit: number[] = [];
+    let isIncludeRemaining = false;
+
+    binary.forEach(bin => {
+      if(bin === 1){
+        newBinaryDigit.push(1);
+        isIncludeRemaining = true
+      }else if(bin === 0 && isIncludeRemaining === true){
+        newBinaryDigit.push(bin)
+      }
+    });
+
+    setBinaryDisplay([...newBinaryDigit])
+
+    console.log(...newBinaryDigit);
+  }
+
+  function resetData(){
+    setBinaryBase([8, 4, 2, 1]);
+    setBinary([0, 0, 0, 0]);
+    setDecimal(0);
+    setBinaryDisplay([]);
   }
 
   return (
     <div className={styles.page}>
       <h1 style={{textAlign: "left"}}>Binary Simulator</h1>
       <main className={styles.main}>
-        <h3>Decimal: &nbsp;<span style={{fontSize: "40px"}}>{decimal}</span></h3>
+        <div style={{
+          display: "flex",
+          flexDirection: "column"
+        }}>
+          <h3>Decimal: &nbsp;<span style={{fontSize: "40px"}}>{decimal}</span></h3>
+          <h3>Binary: &nbsp;<span style={{fontSize: "40px"}}>{binaryDisplay}</span></h3>
+        </div>
+        <button style={{
+          width: "15%",
+          padding: "10px",
+          cursor: "pointer"
+        }}
+        onClick={resetData}        
+        >
+          reset
+          </button>
         <div className={styles.simulatorContainer}>
           <table className={styles.simulatorTable}>
             <thead>
