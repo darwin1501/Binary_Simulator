@@ -177,6 +177,7 @@ a.secondary {
 
 .title{
   text-align: center;
+  font-size: 3rem;
 }
 
 @media (min-width: 520px){
