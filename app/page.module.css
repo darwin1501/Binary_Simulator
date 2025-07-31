@@ -134,10 +134,11 @@ a.secondary {
 
 .btnBinaryCell{
   cursor: pointer;
+  background-color: #404040;
 }
 
 .btnBinaryCell:hover{
-  background-color: #383838;
+  background-color: #9e9e9e;
 }
 
 .resetBtn{
