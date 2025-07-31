@@ -120,6 +120,83 @@ a.secondary {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert();
+  }
+}
+
+.btnAddBinaryValue{
+  height: 200px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.btnBinaryCell{
+  cursor: pointer;
+}
+
+.btnBinaryCell:hover{
+  background-color: #383838;
+}
+
+.resetBtn{
+  width: 80px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.simulatorContainer{
+  display: flex;
+  gap: 10px;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.simulatorTable {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: 20px auto;
+  height: 200px;
+}
+
+.simulatorTable th,
+.simulatorTable td {
+  border: 1px solid rgb(176, 173, 173);
+  padding: 16px 22px;
+  text-align: center;
+  font-size: 34px;
+  height: 100px;
+}
+
+.tableContainer{
+  max-width: 270px;
+  overflow-x: scroll;
+}
+
+.title{
+  text-align: center;
+}
+
+@media (min-width: 520px){
+  .tableContainer{
+    max-width: 370px;
+  }
+}
+
+@media (min-width: 700px){
+  .tableContainer{
+    max-width: 670px;
+  }
+}
+
+@media (min-width: 1000px){
+  .tableContainer{
+    max-width: 970px;
+  }
+}
+
 @media (max-width: 600px) {
   .page {
   
@@ -153,60 +230,4 @@ a.secondary {
     align-items: center;
     justify-content: center;
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-}
-
-.btnAddBinaryValue{
-  height: 200px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.btnBinaryCell{
-  cursor: pointer;
-}
-
-.btnBinaryCell:hover{
-  background-color: #383838;
-}
-
-.resetBtn{
-  width: 80px;
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.simulatorContainer{
-  display: flex;
-  gap: 10px;
-  flex-direction: row-reverse;
-  align-items: center;
-  max-width: 1000px;
-  overflow-x: scroll;
-}
-
-.simulatorTable {
-  border: 1px solid black;
-  border-collapse: collapse;
-  margin: 20px auto;
-  height: 200px;
-}
-
-.simulatorTable th,
-.simulatorTable td {
-  border: 1px solid rgb(176, 173, 173);
-  padding: 16px 22px;
-  text-align: center;
-  font-size: 34px;
-  height: 100px;
-}
-
-.title{
-  text-align: center;
 }

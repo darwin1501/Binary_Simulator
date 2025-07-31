@@ -93,30 +93,32 @@ export default function Home() {
         </div>
         
         <div className={styles.simulatorContainer}>
-          <table className={styles.simulatorTable}>
-            <thead>
-              <tr>
-                {binaryBase.map((binaryBaseData) => {
-                  return(
-                    <th key={uuidv4()}>{binaryBaseData}</th>
-                  )
-                })}
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-               {binary.map((binaryData, binaryIndex)=>{
-                  return(
-                    <td key={uuidv4()} 
-                    className={styles.btnBinaryCell}
-                    onClick={()=>{
-                     addValueToDecimal(binaryData, binaryIndex)
-                    }}>{binaryData}</td>
-                  )
-                })}
-              </tr>
-            </tbody>
-          </table>
+          <div className={styles.tableContainer}>
+            <table className={styles.simulatorTable}>
+              <thead>
+                <tr>
+                  {binaryBase.map((binaryBaseData) => {
+                    return(
+                      <th key={uuidv4()}>{binaryBaseData}</th>
+                    )
+                  })}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                 {binary.map((binaryData, binaryIndex)=>{
+                    return(
+                      <td key={uuidv4()} 
+                      className={styles.btnBinaryCell}
+                      onClick={()=>{
+                       addValueToDecimal(binaryData, binaryIndex)
+                      }}>{binaryData}</td>
+                    )
+                  })}
+                </tr>
+              </tbody>
+            </table>
+          </div>
           <button  onClick={addBinaryValue} className={styles.btnAddBinaryValue}>
             <Image 
             alt="add"
