@@ -87,7 +87,8 @@ export default function Home() {
         </div>
         <button style={{
           width: "15%",
-          padding: "10px"
+          padding: "10px",
+          textAlign: "center"
         }}
         onClick={resetData}        
         >
