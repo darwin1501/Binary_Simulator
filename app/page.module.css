@@ -6,9 +6,6 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
   justify-items: center;
   min-height: 100svh;
   padding: 80px;
@@ -31,7 +28,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  grid-row-start: 2;
+  margin-top: 5%;
 }
 
 .main ol {
@@ -95,6 +92,7 @@ a.secondary {
   grid-row-start: 3;
   display: flex;
   gap: 24px;
+  margin-top: 20px
 }
 
 .footer {
@@ -103,9 +101,6 @@ a.secondary {
   gap: 8px;
 }
 
-.footer img {
-  flex-shrink: 0;
-}
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
@@ -127,7 +122,7 @@ a.secondary {
 
 @media (max-width: 600px) {
   .page {
-    padding: 32px;
+  
     padding-bottom: 80px;
   }
 
@@ -160,24 +155,6 @@ a.secondary {
   }
 }
 
-@media (min-width: 470px){
-  .simulatorTable {
-    border: 1px solid black;
-    border-collapse: collapse;
-    margin: 20px auto;
-    height: 200px;
-  }
-  
-  .simulatorTable th,
-  .simulatorTable td {
-    border: 1px solid rgb(176, 173, 173);
-    padding: 16 32px;
-    text-align: center;
-    font-size: 34px;
-    height: 100px;
-  }
-}
-
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
@@ -196,6 +173,13 @@ a.secondary {
 
 .btnBinaryCell:hover{
   background-color: #383838;
+}
+
+.resetBtn{
+  width: 80px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .simulatorContainer{
@@ -217,8 +201,12 @@ a.secondary {
 .simulatorTable th,
 .simulatorTable td {
   border: 1px solid rgb(176, 173, 173);
-  padding: 16 32px;
+  padding: 16px 22px;
   text-align: center;
   font-size: 34px;
   height: 100px;
+}
+
+.title{
+  text-align: center;
 }

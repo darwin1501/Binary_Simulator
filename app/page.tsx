@@ -9,7 +9,7 @@ export default function Home() {
   const [binaryBase, setBinaryBase, ] = useState([8, 4, 2, 1]);
   const [binary, setBinary] = useState([0, 0, 0, 0]);
   const [decimal, setDecimal] = useState(0);
-  const [binaryDisplay, setBinaryDisplay] = useState<number[]>([]);
+  const [binaryDisplay, setBinaryDisplay] = useState<number[]>([0]);
 
   function addBinaryValue(){
       // get the first binary value
@@ -71,12 +71,12 @@ export default function Home() {
     setBinaryBase([8, 4, 2, 1]);
     setBinary([0, 0, 0, 0]);
     setDecimal(0);
-    setBinaryDisplay([]);
+    setBinaryDisplay([0]);
   }
 
   return (
     <div className={styles.page}>
-      <h1 style={{textAlign: "left"}}>Binary Simulator</h1>
+      <h1 className={styles.title}>Binary Simulator</h1>
       <main className={styles.main}>
         <div style={{
           display: "flex",
@@ -84,15 +84,14 @@ export default function Home() {
         }}>
           <h3>Decimal: &nbsp;&nbsp;<span style={{fontSize: "40px"}}>{decimal}</span></h3>
           <h3>Binary: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style={{fontSize: "40px"}}>{binaryDisplay}</span></h3>
-        </div>
-        <button style={{
-          width: "15%",
-          padding: "10px"
-        }}
+          <button 
+        className={styles.resetBtn}
         onClick={resetData}        
         >
           reset
-          </button>
+        </button>
+        </div>
+        
         <div className={styles.simulatorContainer}>
           <table className={styles.simulatorTable}>
             <thead>
