@@ -132,7 +132,7 @@ export default function Home() {
       </main>
       <footer className={styles.footer}>
         <span style={{width: "100%"}}>Created by: &nbsp;
-          <a href="https://https://darwin1501.github.io/" target="_blank"
+          <a href="https://darwin1501.github.io/" target="_blank"
           style={{
             textDecoration: "underline"
           }}>
